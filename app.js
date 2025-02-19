@@ -19,7 +19,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/user', userRoutes);
 app.use('/products', productRoutes);
 app.use("/api/orders", orderRoutes);
-
+app.get("/", (req, res) => {
+  res.send("Server is running successfully!");
+});
 const PORT = process.env.PORT || 5000; // Use PORT from .env or default to 5000
 app.listen(PORT, () => {
   console.log(`Service is running on port ${PORT}`);
